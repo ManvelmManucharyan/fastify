@@ -24,7 +24,7 @@ server1.get('/answer-server2', (request: FastifyRequest, reply: FastifyReply) =>
 
 server1.get('/connect-server2', async (request: FastifyRequest, reply: FastifyReply) => {
     try {        
-        const response: AxiosResponse  = await axios.get(`http://localhost:${process.env.PORT2}/answer-server1`);    
+        const response: AxiosResponse  = await axios.get(`http://localhost:${process.env.PORT2 || 3002}/answer-server1`);    
         reply.send(response.data);
     } catch (error: any) {
         console.error('Error fetching data:', error);
